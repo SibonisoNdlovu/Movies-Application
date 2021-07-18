@@ -1,0 +1,19 @@
+<section>
+  <div class="chips" *ngIf="genres$ | async as genres;">
+    <mat-chip-list>
+      <mat-chip color="accent" [selected]="link.isActive"
+        *ngFor="let genre of genres" routerLinkActive #link="routerLinkActive"
+        [routerLink]="['/genres']"
+        [queryParams]="{genre: genre.id}"
+        >{{genre.name}}</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="cards" *ngIf="movies$ | async as movies;">
+    <mat-card class="card" *ngFor="let movie of movies">
+      <mat-card-content>
+        <img [src]="movie.poster_path | image:500" [routerLink]="['/movie-detail', movie.id]">
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</section>

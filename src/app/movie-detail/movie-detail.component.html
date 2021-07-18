@@ -1,0 +1,51 @@
+<section *ngIf="movie$ | async as movie" [style.backgroundImage]="movie.backdrop_path | image:1280 | backgroundimage">
+  <div class="content">
+    <article>
+      <mat-card class="card">
+        <mat-card-content>
+          <div class="description">
+            <div class="content-header">
+              <div class="vote-average">
+                <mat-icon aria-label="Movie ratte" color="accent">star</mat-icon>
+                <span>{{movie.vote_average}}
+                  <small>/10</small>
+                </span>
+              </div>
+
+              <h1>{{movie.title}}
+                <small>({{movie.release_date | date: 'yyyy'}})</small>
+              </h1>
+
+            </div>
+            <h3>
+              <h1>Overview</h1>
+            </h3>
+            <p>
+              {{movie.overview}}
+            </p>
+            
+            <h3>Language</h3>
+            <p *ngFor="let lang of movie.spoken_languages">{{lang.name}}</p>
+
+            <div class="divider"></div>
+
+            <h3>Runtime</h3>
+            <p>{{movie.runtime}} mins</p>
+
+            <div class="divider"></div>
+
+            <h3>Genres</h3>
+            <mat-chip-list>
+              <mat-chip *ngFor="let genre of movie.genres" [routerLink]="['/genres']" [queryParams]="{genre: genre.id}">{{genre.name}}</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="image">
+            <img [src]="movie.poster_path | image:300" [alt]="movie.original_title">
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+
+    </article>
+  </div>
+</section>

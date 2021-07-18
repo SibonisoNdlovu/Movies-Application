@@ -1,0 +1,14 @@
+<section class="container">
+  <div class="title"> {{title}}</div>
+  <ngx-hm-carousel align="left" [show-num]="sliderNumber" [drag-many]="true" class="link-container">
+    <section ngx-hm-carousel-container class="content">
+      <article class="item cursor-pointer t-al-c" *ngFor="let movie of source.results" ngx-hm-carousel-item>
+        <div class="img" [style.backgroundImage]="movie.poster_path | image:780 | backgroundimage">
+          <div class="item-details" [routerLink]="['/movie-detail', movie.id]">
+            <p>{{movie.title}}</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </ngx-hm-carousel>
+</section>

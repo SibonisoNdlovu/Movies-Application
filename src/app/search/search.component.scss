@@ -1,0 +1,23 @@
+
+.search-box{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  input{
+    border: none;
+    padding: 20px;
+    outline: none;
+    font: 300 18px Roboto;
+    width: 100%;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2),
+                0 4px 5px 0 rgba(0, 0, 0, .14),
+                0 1px 10px 0 rgba(0, 0, 0, .12);
+
+    @media (min-width: 768px) {
+      font: 300 24px Roboto;
+      padding: 20px 10px 20px 40px;
+    }
+  }
+}

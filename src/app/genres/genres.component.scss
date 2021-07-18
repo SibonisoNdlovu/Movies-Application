@@ -1,0 +1,33 @@
+section{
+  padding: 20px;
+  min-height: 700px;
+
+  .chips{
+    display: flex;
+    padding: 15px 0;
+
+    .mat-standard-chip{
+      cursor: pointer;
+    }
+  }
+
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+
+    .card {
+      padding: 0;
+
+      img{
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media all and (min-width: 600px) {
+    padding: 20px 65px;
+  }
+
+}

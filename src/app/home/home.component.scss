@@ -1,0 +1,9 @@
+.container{
+  position: relative;
+  padding-bottom: 100px;
+  padding-top: 10%;
+
+  @media (min-width: 768px) {
+    margin-top: -10%;
+  }
+}

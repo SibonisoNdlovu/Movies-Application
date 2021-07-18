@@ -1,0 +1,11 @@
+<section>
+  <div class="container">
+    <ng-container *ngFor="let section of otherSections">
+      <app-movies-carousel
+        *ngIf="section.source$ | async as source; "
+        [title]="section.title"
+        [source]="source">
+      </app-movies-carousel>
+    </ng-container>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+
+<div *ngIf="show">
+  <div class="search-box" [@fade]="show ? 'show' : 'hide'">
+    <input type="text"
+      placeholder="Search your favorite movie"
+      [formControl]="searchControl"
+      [matAutocomplete]="auto"
+      (change)="searchChanged($event.target.value)">
+      <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+        <mat-option *ngFor="let keyword of keywords$ | async" [value]="keyword.name" (onSelectionChange)="searchChanged(keyword.name)">
+          {{keyword.name}}
+        </mat-option>
+      </mat-autocomplete>
+  </div>
+</div>
+
+<a mat-icon-button
+  [routerLink]="show ? ['/home'] : ['/genres']"
+  [color]="show ? 'accent' : ''"
+  [@spin]="show ? 'show' : 'hide'">
+  <mat-icon>{{ show ? 'close' : 'search' }}</mat-icon>
+</a>
